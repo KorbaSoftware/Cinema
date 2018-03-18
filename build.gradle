@@ -20,13 +20,16 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'pl.korbasoftware'
 version = '0.0.1-SNAPSHOT'
+
 sourceCompatibility = 1.8
+
 compileKotlin {
 	kotlinOptions {
 		freeCompilerArgs = ["-Xjsr305=strict"]
 		jvmTarget = "1.8"
 	}
 }
+
 compileTestKotlin {
 	kotlinOptions {
 		freeCompilerArgs = ["-Xjsr305=strict"]
@@ -38,10 +41,18 @@ repositories {
 	mavenCentral()
 }
 
-
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter')
-	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	compile("org.jetbrains.kotlin:kotlin-reflect")
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile 'org.springframework.boot:spring-boot-starter'
+	compile 'org.springframework.boot:spring-boot-starter-web'
+	compile 'org.springframework.boot:spring-boot-starter-jetty'
+
+	compile 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+	compile 'org.jetbrains.kotlin:kotlin-reflect'
+
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+configurations {
+	compile.exclude module: 'spring-boot-starter-tomcat'
+	compile.exclude group: 'org.apache.tomcat'
 }
