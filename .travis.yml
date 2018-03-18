@@ -3,4 +3,7 @@ notifications:
 
 language: java
 jdk:
-    - oraclejdk8
+  - oraclejdk8
+
+before_install:
+  -chmod +x gradlew
