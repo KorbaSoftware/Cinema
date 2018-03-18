@@ -1,4 +1,4 @@
-package pl.korbasoftware.Cinema
+package pl.korbasoftware.cinema
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
