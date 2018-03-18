@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/KorbaSoftware/Cinema.svg?branch=master)](https://travis-ci.org/KorbaSoftware/Cinema)
