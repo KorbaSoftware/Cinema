@@ -1,4 +1,4 @@
-package pl.korbasoftware.Cinema
+package pl.korbasoftware.cinema
 
 import org.junit.Test
 import org.junit.runner.RunWith

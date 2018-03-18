@@ -1,0 +1,6 @@
+notifications:
+    slack: korbasoftware:cX8FwzEugFfCbagL2EfgZEjw
+
+language: java
+jdk:
+  - oraclejdk8
