@@ -1,3 +1,6 @@
+before_install:
+  - chmod +x gradlew
+
 notifications:
     slack: korbasoftware:cX8FwzEugFfCbagL2EfgZEjw
 
