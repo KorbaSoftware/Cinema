@@ -12,7 +12,7 @@ subprojects {
 
     ext.mainClass = 'cinema.Cinema' + name.capitalize()
     buildDir = rootBuildDir.path + File.separator + name
-    bootJar.enabled = true
+    bootJar.enabled = false
     jar.enabled = true
 
 	sourceCompatibility = 1.8
