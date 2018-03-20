@@ -1,11 +1,11 @@
-package pl.korbasoftware.cinema
+package cinema
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class CinemaApplication
+class CinemaPersistence
 
 fun main(args: Array<String>) {
-    runApplication<CinemaApplication>(*args)
+    runApplication<CinemaPersistence>(*args)
 }

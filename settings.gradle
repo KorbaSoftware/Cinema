@@ -1,0 +1,10 @@
+rootProject.name = 'Cinema'
+
+include ':modules:persistence'
+include ':modules:crawler'
+include ':modules:provider'
+include ':modules:security'
+include ':modules:requester'
+include ':modules:logger'
+include ':modules:mail'
+
