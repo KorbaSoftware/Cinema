@@ -9,9 +9,10 @@ jdk:
   - oraclejdk8
 
 addons:
-  sonarqube: true
-env:
-  global:
-    - secure: <the token generated on sonarqube.com>
+  sonarcloud:
+    - organization: "korbasoftware"
+    - token:
+        secure: 862646087ffb0752a2db8d1fac16297e0c3b367a
 script:
   gradle check
+  sonar-scanner
