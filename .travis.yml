@@ -13,12 +13,12 @@ jdk:
 
 addons:
   sonarcloud:
-    organization: "korbasoftware"
+    organization: "fryc1906-github"
     branches:
         - fryc-sonarIntegration
         - master
     token:
-        - "862646087ffb0752a2db8d1fac16297e0c3b367a"
+        - "3c80a23fbc1d2a25d3a808c0babed7333d017e80"
     github_token:
         - "fdeb4eb181f51e23e5d880a734b88c9cb4e0759a"
 
@@ -26,6 +26,6 @@ addons:
 
 script:
   - sonar-scanner
-  - ./gradlew sonarqube -Dsonar.organization=korbasoftware -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=862646087ffb0752a2db8d1fac16297e0c3b367a
+
   
 
