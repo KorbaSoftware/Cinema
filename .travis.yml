@@ -4,6 +4,8 @@ before_install:
 notifications:
     slack: korbasoftware:cX8FwzEugFfCbagL2EfgZEjw
 
+dist: trusty
+
 language: java
 jdk:
   - oraclejdk8
@@ -11,7 +13,7 @@ jdk:
 
 addons:
   sonarcloud:
-    organization: "korbasoftware" # the key of the org you chose at step #3
+    organization: korbasoftware # the key of the org you chose at step #3
     branches :
         - fryc-sonarIntegration
     token :
