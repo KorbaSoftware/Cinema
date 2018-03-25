@@ -23,6 +23,7 @@ ext.set("rootBuildDir", buildDir)
 
 
 subprojects {
+	apply plugin: 'org.sonarqube'
 	apply plugin: 'idea'
 	apply plugin: 'kotlin'
 	apply plugin: 'kotlin-spring'
