@@ -13,7 +13,7 @@ buildscript {
 
 
 plugins {
-	id "org.sonarqube" version "2.2"
+	id "org.sonarqube" version "2.6.2"
 }
 
 group = 'pl.korbasoftware'
@@ -93,6 +93,7 @@ subprojects {
 			classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBoot}")
 			classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin}")
 			classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlin}")
+			classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:+")
 		}
 	}
 }
