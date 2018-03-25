@@ -27,6 +27,6 @@ script:
   ./gradlew sonarqube \
     -Dsonar.organization=korbasoftware \
     -Dsonar.host.url=https://sonarcloud.io \
-    -Dsonar.login=faa8c340758c9a49e634e83d402bdc60c846c9e6
+    -Dsonar.login=862646087ffb0752a2db8d1fac16297e0c3b367a
 
 
