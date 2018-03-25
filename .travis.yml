@@ -4,30 +4,47 @@ before_install:
 notifications:
     slack: korbasoftware:cX8FwzEugFfCbagL2EfgZEjw
 
-dist: trusty
+#dist: trusty
 
 language: java
-
+sudo: false
+install: true
 jdk:
   - oraclejdk8
 
-
 addons:
   sonarcloud:
-    organization: "fryc1906-github"
-    branches:
-        - fryc-sonarIntegration
-        - master
-    token:
-        - "3c80a23fbc1d2a25d3a808c0babed7333d017e80"
-    github_token:
-        - "fdeb4eb181f51e23e5d880a734b88c9cb4e0759a"
-
-
+    organization: "korba"
+    token: "77b860d6d3d2add156cd1a5477eb2c8ab912c123"
+      #secure: "your_token_encrypted_with_travis_encrypt_tool"
 
 script:
-  - ./gradlew sonarqube -X
-  - sonar-scanner -X
+  - ./gradlew sonarqube
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+    - '$HOME/.gradle'
+    - '.gradle'
+
+#addons:
+#  sonarcloud:
+#    organization: "fryc1906-github"
+#    branches:
+#        - fryc-sonarIntegration
+#        - master
+#    token:
+#        - "3c80a23fbc1d2a25d3a808c0babed7333d017e80"
+#    github_token:
+#        - "fdeb4eb181f51e23e5d880a734b88c9cb4e0759a"
+
+
+
+#script:
+#  - ./gradlew sonarqube \
+#           -Dsonar.host.url=https://sonarcloud.io \
+#           -Dsonar.organization=korba \
+#           -Dsonar.login=77b860d6d3d2add156cd1a5477eb2c8ab912c123
 
   
 
