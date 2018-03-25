@@ -1,5 +1,6 @@
 before_install:
   - chmod +x gradlew
+  - composer config --global github-oauth.github.com "$SONAR_GITHUB_TOKEN"
 
 notifications:
     slack: korbasoftware:cX8FwzEugFfCbagL2EfgZEjw
@@ -24,9 +25,6 @@ addons:
 
 script:
   # other script steps might be done before running the actual analysis
-  ./gradlew sonarqube \
-    -Dsonar.organization=korbasoftware \
-    -Dsonar.host.url=https://sonarcloud.io \
-    -Dsonar.login=862646087ffb0752a2db8d1fac16297e0c3b367a
+  ./gradlew sonarqube
 
 
