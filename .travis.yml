@@ -18,13 +18,14 @@ addons:
     branches:
         - fryc-sonarIntegration
         - master
-    token :
+    token:
         - "862646087ffb0752a2db8d1fac16297e0c3b367a"
+    github_token:
+        - "fdeb4eb181f51e23e5d880a734b88c9cb4e0759a"
 
 
 
 script:
   # other script steps might be done before running the actual analysis
   ./gradlew sonarqube
-
 
