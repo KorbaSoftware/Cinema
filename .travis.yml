@@ -26,6 +26,7 @@ addons:
 
 
 script:
+  - ./gradlew sonarqube
   - sonar-scanner -X
 
   
