@@ -7,5 +7,9 @@ import org.springframework.boot.runApplication
 class CinemaPersistence
 
 fun main(args: Array<String>) {
-    runApplication<CinemaPersistence>(*args)
+    try {
+        runApplication<CinemaPersistence>(*args)
+    } catch(e: Exception) {
+
+    }
 }
