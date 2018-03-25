@@ -1,99 +1,96 @@
-buildscript {
-	repositories {
-		mavenCentral()
-	}
-
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")
-		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:+")
-		classpath("org.jetbrains.kotlin:kotlin-allopen:+")
-		classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:+")
-	}
-}
-
-
-plugins {
-	id "org.sonarqube" version "2.6.1"
-}
-
 group = 'pl.korbasoftware'
 version = '0.0.1-SNAPSHOT'
 
+apply plugin: 'org.sonarqube'
 ext.set("rootBuildDir", buildDir)
 
-
 subprojects {
-	apply plugin: 'idea'
-	apply plugin: 'kotlin'
-	apply plugin: 'kotlin-spring'
-	apply plugin: 'org.springframework.boot'
-	apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'application'
+    apply plugin: 'war'
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'kotlin'
+    apply plugin: "io.spring.dependency-management"
 
-	ext.mainClass = 'cinema.Cinema' + name.capitalize()
-	buildDir = rootBuildDir.path + File.separator + name
-	bootJar.enabled = false
-	jar.enabled = true
+    mainClassName = 'cinemy.Cinema' + name.capitalize()
+    ext.mainClass = 'cinema.Cinema' + name.capitalize()
+    buildDir = rootBuildDir.path + File.separator + name
+    bootJar.enabled = true
+    jar.enabled = true
 
-	sourceCompatibility = 1.8
-	targetCompatibility = 1.8
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 
-	ext {
-		kotlin = '1.2.30'
-		springBoot = '2.0.0.RELEASE'
-	}
+    ext {
+        kotlin = '1.2.30'
+    }
 
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin"
+        compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin"
+        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin"
 
+        testCompile "org.springframework.boot:spring-boot-starter-test"
+    }
 
-	dependencies {
-		compile 'org.springframework.boot:spring-boot-starter'
-		compile 'org.springframework.boot:spring-boot-starter-web'
-		compile 'org.springframework.boot:spring-boot-starter-jetty'
+    configurations {
+        compile.exclude module: 'spring-boot-starter-tomcat'
+    }
 
-		compile 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
-		compile 'org.jetbrains.kotlin:kotlin-reflect'
+    repositories {
+        mavenCentral()
+    }
 
-		testCompile 'org.springframework.boot:spring-boot-starter-test'
-	}
+    sourceSets \
+    {
+        main {
+            java.srcDirs += 'main'
+            kotlin.srcDirs += 'kotlin'
+            resources.srcDirs += 'resources'
+        }
 
-	configurations {
-		compile.exclude module: 'spring-boot-starter-tomcat'
-		compile.exclude group: 'org.apache.tomcat'
-	}
+        test {
+            kotlin.srcDirs += 'test'
+            resources.srcDirs += 'testResources'
+        }
+    }
 
-	repositories {
-		mavenCentral()
-	}
+    compileKotlin { kotlinOptions { jvmTarget = "1.8" } }
+    compileTestKotlin { kotlinOptions { jvmTarget = "1.8" } }
 
-	sourceSets {
-		main {
-			kotlin { srcDirs = ['kotlin'] }
-			resources { srcDirs = ['resources'] }
-		}
+    buildscript {
+        repositories {
+            mavenCentral()
+        }
 
-		test {
-			kotlin { srcDirs = ['test'] }
-			resources { srcDirs = ['testResources'] }
-		}
-	}
+        dependencies {
+            classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE'
+            classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:+"
+            classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:+"
+            classpath "io.spring.gradle:dependency-management-plugin:+"
+        }
+    }
 
-	compileKotlin {
-		kotlinOptions { jvmTarget = "1.8" }
-	}
+}
 
-	compileTestKotlin {
-		kotlinOptions { jvmTarget = "1.8" }
-	}
+buildscript {
+    repositories {
+        mavenCentral()
+    }
 
-	buildscript {
-		repositories {
-			mavenCentral()
-		}
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:+"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:+"
+        classpath "io.spring.gradle:dependency-management-plugin:+"
+    }
+}
 
-		dependencies {
-			classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBoot}")
-			classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin}")
-			classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlin}")
-			classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:+")
-		}
-	}
+sonarqube {
+    properties {
+        property "sonar.projectName", "Cinema"
+        property "sonar.projectKey", "korba"
+        property "sonar.sourceEncoding", "UTF-8"
+    }
 }
