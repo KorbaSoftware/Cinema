@@ -15,7 +15,14 @@ addons:
     token:
       secure: SONAR_TOKEN # encrypted value of your token
 
+
+sonarqube:
+    branches :
+    - fryc-sonarIntegration
+    - master
+
 script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
   - gradle check
+
