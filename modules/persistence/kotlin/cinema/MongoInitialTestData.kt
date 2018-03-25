@@ -13,5 +13,7 @@ class MongoInitialTestData(val userRepository: UserRepository) : ApplicationRunn
                 User("stefek@email.com", "hash1234"),
                 User("zenio@gmail.pl", "1235hash"),
                 User("zbynio@bleble.com", "abecadlozdupyspadlo")))
+
+        println("stefek@email.com is in db: " + userRepository.findByEmail("stefek@email.com").isPresent)
     }
 }
