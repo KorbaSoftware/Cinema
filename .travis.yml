@@ -13,11 +13,12 @@ jdk:
 
 addons:
   sonarcloud:
-    organization: korbasoftware # the key of the org you chose at step #3
+    organization: "korbasoftware" # the key of the org you chose at step #3
     branches:
         - fryc-sonarIntegration
+        - master
     token :
-        - 862646087ffb0752a2db8d1fac16297e0c3b367a
+        - "862646087ffb0752a2db8d1fac16297e0c3b367a"
 
 
 script:
