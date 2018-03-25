@@ -9,4 +9,4 @@ jdk:
   - oraclejdk8
 
 script:
-  gradle check
+  gradle check sonar-scanner
