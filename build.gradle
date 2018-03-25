@@ -1,7 +1,24 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")
+		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:+")
+		classpath("org.jetbrains.kotlin:kotlin-allopen:+")
+	}
+}
+
+plugins {
+	id "org.sonarqube" version "2.6"
+}
+
 group = 'pl.korbasoftware'
 version = '0.0.1-SNAPSHOT'
 
 ext.set("rootBuildDir", buildDir)
+
 
 subprojects {
 	apply plugin: 'idea'
@@ -10,10 +27,10 @@ subprojects {
 	apply plugin: 'org.springframework.boot'
 	apply plugin: 'io.spring.dependency-management'
 
-    ext.mainClass = 'cinema.Cinema' + name.capitalize()
-    buildDir = rootBuildDir.path + File.separator + name
-    bootJar.enabled = false
-    jar.enabled = true
+	ext.mainClass = 'cinema.Cinema' + name.capitalize()
+	buildDir = rootBuildDir.path + File.separator + name
+	bootJar.enabled = false
+	jar.enabled = true
 
 	sourceCompatibility = 1.8
 	targetCompatibility = 1.8
@@ -22,6 +39,8 @@ subprojects {
 		kotlin = '1.2.30'
 		springBoot = '2.0.0.RELEASE'
 	}
+
+
 
 	dependencies {
 		compile 'org.springframework.boot:spring-boot-starter'
@@ -73,17 +92,5 @@ subprojects {
 			classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin}")
 			classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlin}")
 		}
-	}
-}
-
-buildscript {
-	repositories {
-		mavenCentral()
-	}
-
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")
-		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:+")
-		classpath("org.jetbrains.kotlin:kotlin-allopen:+")
 	}
 }
