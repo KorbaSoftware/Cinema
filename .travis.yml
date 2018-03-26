@@ -19,7 +19,7 @@ addons:
       #secure: "your_token_encrypted_with_travis_encrypt_tool"
 
 script:
-  - ./gradlew sonarqube
+#  - ./gradlew sonarqube
   - sonar-scanner
 cache:
   directories:
