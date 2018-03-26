@@ -14,7 +14,7 @@ jdk:
 
 addons:
   sonarcloud:
-    organization: "KorbaSoftware"
+    organization: "korba"
     token: "77b860d6d3d2add156cd1a5477eb2c8ab912c123"
       #secure: "your_token_encrypted_with_travis_encrypt_tool"
 
