@@ -1,8 +1,11 @@
 group 'cinema'
 
+ext {
+    embedMongo = '2.0.3'
+}
+
 dependencies {
     compile "org.springframework.boot:spring-boot-starter"
-
     compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
-    compile "de.flapdoodle.embed:de.flapdoodle.embed.mongo:$embedMongo"
+    compile "de.flapdoodle.embed:de.flapdoodle.embed.mongo:${embedMongo}"
 }
