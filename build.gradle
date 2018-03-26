@@ -95,7 +95,7 @@ buildscript {
 sonarqube {
     properties {
         property "sonar.projectName", "Cinema"
-        property "sonar.projectKey", "korba"
+        property "sonar.projectKey", "cinema"
         property "sonar.sourceEncoding", "UTF-8"
     }
 }
