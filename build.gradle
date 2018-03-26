@@ -10,11 +10,12 @@ subprojects {
 	apply plugin: 'war'
 	apply plugin: 'java'
 	apply plugin: 'idea'
+    apply plugin: 'groovy'
 	apply plugin: 'jacoco'
 	apply plugin: 'kotlin'
 	apply plugin: "io.spring.dependency-management"
 
-	mainClassName = 'cinemy.Cinema' + name.capitalize()
+	mainClassName = 'cinema.Cinema' + name.capitalize()
 	ext.mainClass = 'cinema.Cinema' + name.capitalize()
 	buildDir = rootBuildDir.path + File.separator + name
 	bootJar.enabled = true
@@ -23,16 +24,20 @@ subprojects {
 	sourceCompatibility = 1.8
 	targetCompatibility = 1.8
 
-	ext {
-		kotlin = '1.2.30'
-	}
+    ext {
+        kotlin = '1.2.31'
+        groovy = '2.4.14'
+        spock = '1.1-groovy-2.4'
+    }
 
 	dependencies {
 		compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin"
 		compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin"
 		compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin"
 
-		testCompile "org.springframework.boot:spring-boot-starter-test"
+        testCompile "org.codehaus.groovy:groovy-all:$groovy"
+        testCompile "org.spockframework:spock-core:$spock"
+        testCompile "org.springframework.boot:spring-boot-starter-test"
 	}
 
 	configurations {
@@ -45,14 +50,13 @@ subprojects {
 
 	sourceSets {
         main {
-            java.
-					srcDirs += 'main'
+            java.srcDirs += 'main'
             kotlin.srcDirs += 'kotlin'
             resources.srcDirs += 'resources'
         }
 
         test {
-            kotlin.srcDirs += 'test'
+            groovy.srcDirs += 'test'
             resources.srcDirs += 'testResources'
 		}
     }
