@@ -91,11 +91,3 @@ buildscript {
         classpath "io.spring.gradle:dependency-management-plugin:+"
     }
 }
-
-sonarqube {
-    properties {
-        property "sonar.projectName", "Cinema"
-        property "sonar.projectKey", "cinema"
-        property "sonar.sourceEncoding", "UTF-8"
-    }
-}
