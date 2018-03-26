@@ -35,7 +35,7 @@ subprojects {
 		compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin"
 		compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin"
 
-        compile "org.codehaus.groovy:groovy-all:$groovy"
+        testCompile "org.codehaus.groovy:groovy-all:$groovy"
         testCompile "org.spockframework:spock-core:$spock"
         testCompile "org.springframework.boot:spring-boot-starter-test"
 	}
