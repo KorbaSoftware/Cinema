@@ -12,6 +12,6 @@ import org.springframework.stereotype.Component
 class MailSendTest(private val emailSender: EmailSenderService) : ApplicationRunner {
     override fun run(args: ApplicationArguments?) = emailSender.send(Email(
                     EmailAddress("cinema.tester@yahoo.com", "Cinema"),
-                    EmailAddress("wujeckamil@gmail.com", "Kamil W"),
+                    EmailAddress("cinema.tester@yahoo.com", "Test"),
                     EmailBody("subject test", "body test")))
 }

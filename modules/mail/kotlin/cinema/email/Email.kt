@@ -2,11 +2,7 @@ package cinema.email
 
 class Email(val sender: EmailAddress,
             val receiver: EmailAddress,
-            val body: EmailBody) {
-
-    fun getFullSender() = sender.name + " " + sender.email
-    fun getFullReceiver() = receiver.name + " " + receiver.email
-}
+            val body: EmailBody)
 
 class EmailAddress(val email: String,
                    val name: String)
