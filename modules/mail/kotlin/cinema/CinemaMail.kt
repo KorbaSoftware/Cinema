@@ -2,12 +2,10 @@ package cinema
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories
 
 @SpringBootApplication
-@EnableMongoRepositories
-open class CinemaPersistence
+open class CinemaMail
 
 fun main(args: Array<String>) {
-    runApplication<CinemaPersistence>(*args)
+    runApplication<CinemaMail>(*args)
 }
