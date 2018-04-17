@@ -1,4 +1,4 @@
-package email
+package cinema.email
 
 class Email(val sender: EmailAddress,
             val receiver: EmailAddress,

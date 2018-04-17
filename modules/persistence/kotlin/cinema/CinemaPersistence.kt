@@ -6,8 +6,8 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @SpringBootApplication
 @EnableMongoRepositories
-open class CinemaPersistence {
-    fun main(args: Array<String>) {
-        runApplication<CinemaPersistence>(*args)
-    }
+open class CinemaPersistence
+
+fun main(args: Array<String>) {
+    runApplication<CinemaPersistence>(*args)
 }
