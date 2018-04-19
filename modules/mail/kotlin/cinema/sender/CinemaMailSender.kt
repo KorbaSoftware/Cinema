@@ -1,11 +1,14 @@
 package cinema.sender
 
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.mail.javamail.JavaMailSenderImpl
-import org.springframework.stereotype.Component
 
-@Component
-class CinemaMailSender {
-    fun getYahooMailSender() = JavaMailSenderImpl()
+@Configuration
+open class CinemaMailSender {
+    @Bean
+    open fun getYahooMailSender(): JavaMailSender = JavaMailSenderImpl()
             .apply {
                 host = "smtp.mail.yahoo.com"
                 port = 465
