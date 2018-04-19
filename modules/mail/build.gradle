@@ -7,4 +7,5 @@ ext {
 dependencies {
     compile "org.springframework.boot:spring-boot-starter"
     compile "org.springframework.boot:spring-boot-starter-mail:${mail}"
+    compile "org.springframework.kafka:spring-kafka"
 }

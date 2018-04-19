@@ -28,12 +28,15 @@ subprojects {
         kotlin = '1.2.31'
         groovy = '2.4.14'
         spock = '1.1-groovy-2.4'
+        kafka = '2.1.5.RELEASE'
     }
 
 	dependencies {
 		compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin"
 		compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin"
 		compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin"
+        compile "org.springframework.kafka:spring-kafka:$kafka"
+
 
         testCompile "org.codehaus.groovy:groovy-all:$groovy"
         testCompile "org.spockframework:spock-core:$spock"
