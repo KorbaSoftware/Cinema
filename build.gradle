@@ -36,6 +36,9 @@ subprojects {
 		compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin"
 		compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin"
         compile "org.springframework.kafka:spring-kafka:$kafka"
+        compile "org.springframework.boot:spring-boot-starter-jetty"
+        compile "org.springframework.boot:spring-boot-starter-web"
+        compile "org.springframework.boot:spring-boot-starter-security"
 
 
         testCompile "org.codehaus.groovy:groovy-all:$groovy"
@@ -77,7 +80,7 @@ subprojects {
         }
 
         dependencies {
-            classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE'
+            classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.1.RELEASE'
             classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:+"
             classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:+"
             classpath "io.spring.gradle:dependency-management-plugin:+"
@@ -91,7 +94,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE'
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.1.RELEASE'
         classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:+"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:+"
         classpath "io.spring.gradle:dependency-management-plugin:+"
